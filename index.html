@@ -17,11 +17,11 @@
 
     <main class="contenedor-principal">
         <section class="contenedor-principal__primera">
-            <textarea class="contenedor-primera__text_area" name="textarea" rows="40" cols="60">Ingrese el texto aquí</textarea>
+            <textarea id="userText" class="contenedor-primera__text_area" name="textarea" rows="40" cols="60">Ingrese el texto aquí</textarea>
             <p class="contenedor-primera__texto">Solo letras minúsculas y sin acentos</p>
             <div class="contenedor-primera__botones">
-                <button class="contenedor-primera__botones-encriptar">Encriptar</button>
-                <button clasS="contenedor-primera__botones-desencriptar">Desencriptar</button>
+                <button id="encrypt" class="contenedor-primera__botones-encriptar">Encriptar</button>
+                <button id="decrypt" onclick="decryptText();" class="contenedor-primera__botones-desencriptar">Desencriptar</button>
             </div>
         </section>
 
@@ -29,7 +29,7 @@
             <div class="contenido-segunda">
                 <img src="img/personaje.png"/>
                 <p>Ningún mensaje fue encontrado</p>
-                <textarea class="contenedor-segunda__text_area" rows="20" cols="40"></textarea>
+                <textarea id="textoEncriptado" class="contenedor-segunda__text_area" rows="20" cols="40"></textarea>
             </div>
         </section>
     </main>
@@ -37,5 +37,8 @@
     <footer class="footer">
         <p> Diseño por Natalia Durand 2024 </p>
     </footer>
+
+    <script src="app.js"></script>
+
 </body>
 </html>
