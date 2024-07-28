@@ -21,15 +21,16 @@
             <p class="contenedor-primera__texto">Solo letras minúsculas y sin acentos</p>
             <div class="contenedor-primera__botones">
                 <button id="encrypt" class="contenedor-primera__botones-encriptar">Encriptar</button>
-                <button id="decrypt" onclick="decryptText();" class="contenedor-primera__botones-desencriptar">Desencriptar</button>
+                <button id="decrypt" class="contenedor-primera__botones-desencriptar">Desencriptar</button>
             </div>
         </section>
 
         <section class="contenedor-principal__segunda">
             <div class="contenido-segunda">
-                <img src="img/personaje.png"/>
-                <p>Ningún mensaje fue encontrado</p>
-                <textarea id="textoEncriptado" class="contenedor-segunda__text_area" rows="20" cols="40"></textarea>
+                <img id="infoImg" src="img/personaje.png"/>
+                <textarea id="resultText" class="contenedor-segunda__text_area" placeholder="Ningún mensaje fue encontrado"></textarea>
+                <p id="infoText">Ingresa el texto que desees encriptar o desencriptar</p>
+                
             </div>
         </section>
     </main>
