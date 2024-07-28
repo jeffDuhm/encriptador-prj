@@ -65,6 +65,10 @@ textarea{
     color: var(--blanco);
 }
 
+.contenedor-primera__text_area::placeholder{
+    color: var(--blanco);
+}
+
 .contenedor-principal__primera{
     padding: 10px 20px 0px 0px;
 

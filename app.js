@@ -23,9 +23,16 @@ function encryptText(text) {
 // Boton Encriptar
 document.getElementById("encrypt").onclick = function() {
     let userText = document.getElementById("userText").value;
+    
     let encryptedText = encryptText(userText);
-    console.log(encryptedText);
+    
+    showResult(encryptedText);
+
+    document.getElementById("userText").value = '';
+
 };
+
+
 
 
 function decryptText(text){
@@ -67,5 +74,16 @@ function decryptText(text){
 document.getElementById('decrypt').onclick = function() {
     let userText = document.getElementById('userText').value;
     let decryptedText = decryptText(userText);
-    console.log(decryptedText);
+    showResult(decryptedText);
 };
+
+
+function showResult(text){
+    document.getElementById("resultText").value = text;
+    document.getElementById("resultText").style.height = "100%";
+    document.getElementById("infoImg").style.display = "none";
+    document.getElementById("infoText").style.display = "none";
+    //document.getElementById("btnCopyResult").style.visibility = "visible";
+    
+}
+
