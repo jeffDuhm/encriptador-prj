@@ -32,9 +32,6 @@ document.getElementById("encrypt").onclick = function() {
 
 };
 
-
-
-
 function decryptText(text){
     const words = {
         'ai': 'a',
@@ -75,15 +72,47 @@ document.getElementById('decrypt').onclick = function() {
     let userText = document.getElementById('userText').value;
     let decryptedText = decryptText(userText);
     showResult(decryptedText);
+    document.getElementById("userText").value = '';
 };
 
+function assignTextToElement(element, text){
+    document.getElementById(element).innerText = text;
+    return;
+}
+
+function copyTextResult(){
+
+    // Obtener el texto a copiar
+    let copyText = document.getElementById("resultText");
+
+    // Seleccionar el texto
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // Para móviles
+
+    // Copiar el texto al portapapeles
+    navigator.clipboard.writeText(copyText.value);
+
+    assignTextToElement('infoCopy', 'Texto copiado: ' + copyText.value);
+
+    // Ocultar mensaje de copiado
+    setTimeout(function(){
+        assignTextToElement('infoCopy', '');
+    }, 1000);
+
+    document.getElementById("resultText").value = '';
+    document.getElementById("btnCopyResult").style.visibility = "hidden";
+}
+
+document.getElementById("btnCopyResult").onclick = function(){
+    copyTextResult();
+}
 
 function showResult(text){
     document.getElementById("resultText").value = text;
     document.getElementById("resultText").style.height = "100%";
     document.getElementById("infoImg").style.display = "none";
     document.getElementById("infoText").style.display = "none";
-    //document.getElementById("btnCopyResult").style.visibility = "visible";
+    document.getElementById("btnCopyResult").style.visibility = "visible";
     
 }
 

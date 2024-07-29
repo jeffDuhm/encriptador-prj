@@ -143,6 +143,15 @@ button{
     text-align: center;
 }
 
+.contenedor-segunda__boton-copiar{
+    visibility: hidden;
+    background-color: var(--secundario);
+    margin-bottom: 20px;
+}
+
+
+
+
 .footer{
     width: 100%;
     background-color: var(--claro);
