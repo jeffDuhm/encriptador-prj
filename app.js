@@ -24,12 +24,11 @@ function encryptText(text) {
 document.getElementById("encrypt").onclick = function() {
     let userText = document.getElementById("userText").value;
     
-    let encryptedText = encryptText(userText);
-    
-    showResult(encryptedText);
-
-    document.getElementById("userText").value = '';
-
+    if(verifyText(userText)){
+        let encryptedText = encryptText(userText);
+        showResult(encryptedText);
+        document.getElementById("userText").value = '';
+    }
 };
 
 function decryptText(text){
@@ -76,9 +75,25 @@ document.getElementById('decrypt').onclick = function() {
 };
 
 function assignTextToElement(element, text){
-    document.getElementById(element).innerText = text;
+    document.getElementById(element).innerHTML = text;
     return;
 }
+
+
+// Valida texto sin caracteres especiales o mayúsculas
+function verifyText(text){    
+    const findCharacters = /[^a-z\s]/;
+
+    if (findCharacters.test(text)){
+        assignTextToElement('warningText', '<img id="imgWarning" class="contenedor-primera__texto--icono" src="img/icono_advertencia.png" alt="Advertencia"/> Solo letras minúsculas y sin caracteres especiales.');
+        setTimeout(function(){
+            assignTextToElement('warningText', '');
+        }, 1000);
+        return false;
+    }
+    return true;
+}
+
 
 function copyTextResult(){
 
