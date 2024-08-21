@@ -107,7 +107,7 @@ function copyTextResult(){
     // Copiar el texto al portapapeles
     navigator.clipboard.writeText(copyText.value);
 
-    assignTextToElement('infoCopy', 'Texto copiado: ' + copyText.value);
+    assignTextToElement('infoCopy', '¡Texto copiado!');
 
     // Ocultar mensaje de copiado
     setTimeout(function(){
