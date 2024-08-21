@@ -28,6 +28,12 @@ document.getElementById("encrypt").onclick = function() {
         let encryptedText = encryptText(userText);
         showResult(encryptedText);
         document.getElementById("userText").value = '';
+    } 
+
+    if (userText === '') {
+        document.getElementById("btnCopyResult").style.visibility = "hidden";
+    } else {
+        document.getElementById("btnCopyResult").style.visibility = "visible";
     }
 };
 
@@ -72,6 +78,11 @@ document.getElementById('decrypt').onclick = function() {
     let decryptedText = decryptText(userText);
     showResult(decryptedText);
     document.getElementById("userText").value = '';
+    if (userText === '') {
+        document.getElementById("btnCopyResult").style.visibility = "hidden";
+    } else {
+        document.getElementById("btnCopyResult").style.visibility = "visible";
+    }
 };
 
 function assignTextToElement(element, text){
@@ -116,10 +127,12 @@ function copyTextResult(){
 
     document.getElementById("resultText").value = '';
     document.getElementById("btnCopyResult").style.visibility = "hidden";
+
 }
 
 document.getElementById("btnCopyResult").onclick = function(){
     copyTextResult();
+    
 }
 
 function showResult(text){
