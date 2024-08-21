@@ -30,7 +30,7 @@ document.getElementById("encrypt").onclick = function() {
         document.getElementById("userText").value = '';
     } 
 
-    if (userText === '') {
+    if (userText === '' || !verifyText(userText)) {
         document.getElementById("btnCopyResult").style.visibility = "hidden";
     } else {
         document.getElementById("btnCopyResult").style.visibility = "visible";
@@ -75,10 +75,14 @@ function decryptText(text){
 // Boton Desencriptar
 document.getElementById('decrypt').onclick = function() {
     let userText = document.getElementById('userText').value;
-    let decryptedText = decryptText(userText);
-    showResult(decryptedText);
-    document.getElementById("userText").value = '';
-    if (userText === '') {
+
+    if(verifyText(userText)){
+        let decryptedText = decryptText(userText);
+        showResult(decryptedText);
+        document.getElementById("userText").value = '';
+    } 
+
+    if (userText === '' || !verifyText(userText)) {
         document.getElementById("btnCopyResult").style.visibility = "hidden";
     } else {
         document.getElementById("btnCopyResult").style.visibility = "visible";
